@@ -1,0 +1,47 @@
+# Запуск терминала
+super + Return
+    kitty
+
+super + f
+    firefox
+
+# Закрытие окна
+super + Shift + q
+    bspc node -c
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+
+# Переключение между рабочими столами
+super + {1-9,0}
+    bspc desktop -f ^{1-9,10}
+
+# Перемещение окон между рабочими столами
+super + Shift + {1-9,0}
+    bspc node -d ^{1-9,10}
+
+# Перемещение фокуса между окнами
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Изменение размеров окон
+super + alt + {h,j,k,l}
+    bspc node -z {west,south,north,east} 20 20
+
+super + alt + b 
+    bspc wm --restart
+
+super + alt + s 
+    pkill -USR1 -x sxhkd
+
+super + m
+    bspc desktop -l next
+
+super + t
+    thunar

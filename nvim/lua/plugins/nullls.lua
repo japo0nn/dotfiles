@@ -6,8 +6,11 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
 	formatting.csharpier,
 	formatting.stylua,
+    formatting.clang_format,
 	formatting.prettier.with({ filetypes = { "html", "markdown", "css" } }), -- so prettier works only on these filetypes
-
+    lint.clang_check.with({
+        filetypes = { "c", "cpp" },
+    }),
 	lint.shellcheck,
 }
 

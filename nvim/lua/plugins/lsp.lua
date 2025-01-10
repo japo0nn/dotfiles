@@ -1,5 +1,9 @@
 local lspconfig = require("lspconfig")
 
+lspconfig.clangd.setup({
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
+
 lspconfig.omnisharp.setup({
   cmd = { "dotnet", "/home/igris/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
   -- Enables support for reading code style, naming convention and analyzer

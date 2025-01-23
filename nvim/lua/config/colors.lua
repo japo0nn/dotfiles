@@ -6,4 +6,12 @@ function SetColor(color)
 
 end
 
-SetColor('cyberdream')
+SetColor('tokyonight')
+
+require("tokyonight").setup {
+    transparent = true,
+    styles = {
+       sidebars = "transparent",
+       floats = "transparent",
+    }
+}

@@ -1,11 +1,23 @@
 local lspconfig = require("lspconfig")
 
 lspconfig.clangd.setup({
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--function-arg-placeholders",
+    "--fallback-style=llvm",
+  },
 })
-
+--FIXME
 lspconfig.omnisharp.setup({
-  cmd = { "dotnet", "/home/igris/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+  cmd = {
+    "dotnet",
+    "/home/igris/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll",
+  },
   -- Enables support for reading code style, naming convention and analyzer
   -- settings from .editorconfig.
   enable_editorconfig_support = true,
